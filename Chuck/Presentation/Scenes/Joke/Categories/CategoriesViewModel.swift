@@ -11,3 +11,9 @@ import Foundation
 struct CategoriesViewModel {
     let categories: [String]
 }
+
+extension Array where Element == String {
+    func toViewModel() -> CategoriesViewModel {
+        return CategoriesViewModel(categories: self.map({ $0.capitalized }))
+    }
+}

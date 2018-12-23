@@ -13,7 +13,7 @@ import Swinject
 func buildJokeContainer(withParent parent: Container, andCoordinator coordinator: Coordinator) -> Container {
     let container = Container(parent: parent)
     container.setupCategoriesScene()
-//    container.setupJokeScene()
+    container.setupJokeDetailScene()
     container.register(Coordinator.self) { _ in coordinator}
     return container
 }

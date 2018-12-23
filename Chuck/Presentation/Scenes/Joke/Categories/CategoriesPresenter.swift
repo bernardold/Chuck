@@ -17,12 +17,12 @@ struct CategoriesPresenter {
 }
 
 extension CategoriesPresenter {
-    func askForCategories() {
+    func setup() {
         getCategoriesUseCase.getSingle()
             .do(onSubscribe: { () in
                 self.view?.startLoading()
             })
-            .map({ CategoriesViewModel(categories: $0) })
+            .map({ $0.toViewModel() })
             .subscribe(onSuccess: { categoriesVM in
                 self.view?.stopLoading()
                 self.view?.displayCategories(viewModel: categoriesVM)
@@ -32,6 +32,12 @@ extension CategoriesPresenter {
                     return
                 }
                 // TODO: handle domain error
+            })
+            .disposed(by: disposeBag)
+
+        view?.onSelectCategory
+            .subscribe(onNext: { category in
+                self.view?.displayJoke(fromCategory: category)
             })
             .disposed(by: disposeBag)
     }

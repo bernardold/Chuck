@@ -43,6 +43,8 @@ extension JokeCoordinator {
     }
 
     private func navigateToJoke(_ category: String) {
-        // TODO: Navegação para a tela de piada quando existir
+        let viewController = self.container.resolve(JokeDetailViewController.self)!
+        viewController.navigationItem.title = category
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -27,10 +27,10 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dR8-gB-D7d">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ePL-Jw-O9Q">
-                            <rect key="frame" x="169" y="305" width="37" height="37"/>
+                            <rect key="frame" x="169" y="315" width="37" height="37"/>
                         </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
@@ -45,11 +45,11 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="wvT-p3-b0S" secondAttribute="bottom" id="4cn-1S-Ndr"/>
                 <constraint firstItem="wvT-p3-b0S" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5B8-Oh-WQt"/>
                 <constraint firstItem="wvT-p3-b0S" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GOo-gA-XJn"/>
-                <constraint firstItem="dR8-gB-D7d" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="K2Y-au-ni5"/>
+                <constraint firstItem="dR8-gB-D7d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="K2Y-au-ni5"/>
                 <constraint firstItem="dR8-gB-D7d" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="TDL-Sh-mb5"/>
                 <constraint firstItem="dR8-gB-D7d" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dMA-Wp-tlY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wvT-p3-b0S" secondAttribute="trailing" id="wow-0r-vXh"/>
-                <constraint firstItem="dR8-gB-D7d" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="yey-gi-Akq"/>
+                <constraint firstItem="dR8-gB-D7d" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="yey-gi-Akq"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="39.200000000000003" y="46.326836581709152"/>

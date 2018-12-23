@@ -12,6 +12,6 @@ class CategoriesTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
 
     func configure(with category: String) {
-        categoryLabel.text = category.capitalized
+        categoryLabel.text = category
     }
 }

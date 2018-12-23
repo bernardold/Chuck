@@ -11,7 +11,10 @@ import RxSwift
 import RxCocoa
 
 protocol CategoriesView: CoordinatorHolderView {
+    var onSelectCategory: Observable<String> { get }
+
     func displayCategories(viewModel: CategoriesViewModel)
+    func displayJoke(fromCategory category: String)
     func startLoading()
     func stopLoading()
 }
@@ -23,6 +26,9 @@ class CategoriesViewController: UIViewController {
 
     var dataSource = [String]()
 
+    var onSelectCategory: Observable<String> { return self.onSelectCategorySubject }
+    fileprivate var onSelectCategorySubject: PublishSubject<String> = PublishSubject<String>()
+
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var loadingView: UIView!
 
@@ -30,7 +36,7 @@ class CategoriesViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupObservables()
-        presenter.askForCategories()
+        presenter.setup()
     }
 }
 
@@ -47,9 +53,12 @@ extension CategoriesViewController {
             .do(onNext: { [weak self] indexPath in
                 self?.tableView.deselectRow(at: indexPath, animated: true)
             })
-            .subscribe()
+            .map({ [weak self] indexPath in
+                guard let self = self else { return "" }
+                return self.dataSource[indexPath.row]
+            })
+            .bind(to: onSelectCategorySubject)
             .disposed(by: disposeBag)
-
     }
 }
 
@@ -57,6 +66,10 @@ extension CategoriesViewController: CategoriesView {
     func displayCategories(viewModel: CategoriesViewModel) {
         dataSource = viewModel.categories
         tableView.reloadData()
+    }
+
+    func displayJoke(fromCategory category: String) {
+        coordinator?.navigate(to: .joke(category: category))
     }
 
     func startLoading() {
