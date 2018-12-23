@@ -37,7 +37,7 @@ extension CategoriesPresenter {
 
         view?.onSelectCategory
             .subscribe(onNext: { category in
-                self.view?.displayJoke(fromCategory: category)
+                self.view?.displayJoke(fromCategory: category.lowercased())
             })
             .disposed(by: disposeBag)
     }

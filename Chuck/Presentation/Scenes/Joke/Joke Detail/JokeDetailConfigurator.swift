@@ -20,7 +20,8 @@ extension Container {
         }
 
         register(JokeDetailPresenter.self) { resolver -> JokeDetailPresenter in
-            JokeDetailPresenter(view: resolver.resolve(JokeDetailViewController.self)!)
+            JokeDetailPresenter(view: resolver.resolve(JokeDetailViewController.self)!,
+                                getJokeUseCase: resolver.resolve(GetRandomJokeUseCase.self)!)
         }
     }
 }

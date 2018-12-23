@@ -21,4 +21,9 @@ struct JokeRepository: JokeDataRepository {
     func getJokeCategories() -> Single<[String]> {
         return jokeRemoteDataSource.getJokeCategories()
     }
+
+    func getRandomJoke(_ category: String) -> Single<Joke> {
+        return jokeRemoteDataSource.getRandomJoke(category)
+            .map({ jokeRM in return jokeRM.toDomainModel() })
+    }
 }

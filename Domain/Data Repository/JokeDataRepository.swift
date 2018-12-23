@@ -11,4 +11,5 @@ import RxSwift
 
 public protocol JokeDataRepository {
     func getJokeCategories() -> Single<[String]>
+    func getRandomJoke(_ category: String) -> Single<Joke>
 }

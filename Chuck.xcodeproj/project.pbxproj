@@ -44,6 +44,7 @@
 		D181BB4521D027C0002D6FB6 /* JokeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D181BB4421D027C0002D6FB6 /* JokeDetailViewModel.swift */; };
 		D181BB4821D03354002D6FB6 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D181BB4721D03354002D6FB6 /* UINavigationController+Extensions.swift */; };
 		D181BB4A21D03401002D6FB6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D181BB4921D03401002D6FB6 /* UIColor+Extension.swift */; };
+		D181BB4C21D03E2C002D6FB6 /* GetRandomJokeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D181BB4B21D03E2C002D6FB6 /* GetRandomJokeUseCase.swift */; };
 		EBF75140F988A208ED1EDFA6 /* Pods_Chuck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B51442DF0E72835D35BC07 /* Pods_Chuck.framework */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +125,7 @@
 		D181BB4421D027C0002D6FB6 /* JokeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeDetailViewModel.swift; sourceTree = "<group>"; };
 		D181BB4721D03354002D6FB6 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
 		D181BB4921D03401002D6FB6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		D181BB4B21D03E2C002D6FB6 /* GetRandomJokeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRandomJokeUseCase.swift; sourceTree = "<group>"; };
 		D1B51442DF0E72835D35BC07 /* Pods_Chuck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chuck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -220,6 +222,7 @@
 			children = (
 				D181BB3921CFE495002D6FB6 /* UseCase.swift */,
 				D181BB3721CFBC82002D6FB6 /* GetCategoriesUseCase.swift */,
+				D181BB4B21D03E2C002D6FB6 /* GetRandomJokeUseCase.swift */,
 			);
 			path = "Use Case";
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 				D181BB3821CFBC82002D6FB6 /* GetCategoriesUseCase.swift in Sources */,
 				D181BAF821CDC630002D6FB6 /* JokeDataRepository.swift in Sources */,
 				D181BAF121CDC374002D6FB6 /* Errors.swift in Sources */,
+				D181BB4C21D03E2C002D6FB6 /* GetRandomJokeUseCase.swift in Sources */,
 				D181BB1521CDCF4E002D6FB6 /* Joke.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

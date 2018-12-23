@@ -13,12 +13,8 @@ extension UINavigationController {
         navigationBar.barStyle = .default
         navigationBar.isTranslucent = false
         navigationBar.barTintColor = .primary
-        navigationBar.tintColor = .black
+        navigationBar.tintColor = .white
         let titleAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white]
         navigationBar.titleTextAttributes = titleAttributes
-        if #available(iOS 11.0, *) {
-            navigationBar.largeTitleTextAttributes = titleAttributes
-            navigationBar.prefersLargeTitles = true
-        }
     }
 }

@@ -46,5 +46,6 @@ extension Container {
 
     func setupUseCases() {
         autoregister(GetCategoriesUseCase.self, initializer: GetCategoriesUseCase.init)
+        autoregister(GetRandomJokeUseCase.self, initializer: GetRandomJokeUseCase.init)
     }
 }

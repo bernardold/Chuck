@@ -7,9 +7,13 @@
 //
 
 import Foundation
+import Domain
 import RxSwift
 
 struct JokeDetailPresenter {
     let disposeBag: DisposeBag = DisposeBag()
     weak var view: JokeDetailView?
+    let getJokeUseCase: Domain.GetRandomJokeUseCase
 }
+
+extension JokeDetailPresenter {}

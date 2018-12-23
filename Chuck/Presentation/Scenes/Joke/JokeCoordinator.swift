@@ -25,6 +25,8 @@ class JokeCoordinator: Coordinator {
     func start() {
         let viewController = container.resolve(CategoriesViewController.self)!
         viewController.navigationItem.title = "Categories"
+        let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        viewController.navigationItem.backBarButtonItem = backButton
         navigationController?.pushViewController(viewController, animated: true)
         navigationController?.setToDefault()
     }
