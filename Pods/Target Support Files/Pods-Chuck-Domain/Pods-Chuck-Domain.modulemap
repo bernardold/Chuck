@@ -1,0 +1,6 @@
+framework module Pods_Chuck_Domain {
+  umbrella header "Pods-Chuck-Domain-umbrella.h"
+
+  export *
+  module * { export * }
+}
