@@ -26,9 +26,7 @@ class JokeCoordinator: Coordinator {
         let viewController = container.resolve(CategoriesViewController.self)!
         viewController.navigationItem.title = "Categories"
         navigationController?.pushViewController(viewController, animated: true)
-        if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true
-        }
+        navigationController?.setToDefault()
     }
 }
 

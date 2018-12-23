@@ -42,6 +42,8 @@
 		D181BB4121D027A8002D6FB6 /* JokeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D181BB3F21D027A8002D6FB6 /* JokeDetailViewController.xib */; };
 		D181BB4321D027B6002D6FB6 /* JokeDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D181BB4221D027B6002D6FB6 /* JokeDetailPresenter.swift */; };
 		D181BB4521D027C0002D6FB6 /* JokeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D181BB4421D027C0002D6FB6 /* JokeDetailViewModel.swift */; };
+		D181BB4821D03354002D6FB6 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D181BB4721D03354002D6FB6 /* UINavigationController+Extensions.swift */; };
+		D181BB4A21D03401002D6FB6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D181BB4921D03401002D6FB6 /* UIColor+Extension.swift */; };
 		EBF75140F988A208ED1EDFA6 /* Pods_Chuck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B51442DF0E72835D35BC07 /* Pods_Chuck.framework */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +122,8 @@
 		D181BB3F21D027A8002D6FB6 /* JokeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JokeDetailViewController.xib; sourceTree = "<group>"; };
 		D181BB4221D027B6002D6FB6 /* JokeDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeDetailPresenter.swift; sourceTree = "<group>"; };
 		D181BB4421D027C0002D6FB6 /* JokeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeDetailViewModel.swift; sourceTree = "<group>"; };
+		D181BB4721D03354002D6FB6 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		D181BB4921D03401002D6FB6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		D1B51442DF0E72835D35BC07 /* Pods_Chuck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chuck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -242,6 +246,7 @@
 		D181BAE721CDAF01002D6FB6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				D181BB4621D0333D002D6FB6 /* Extensions */,
 				D181BB1A21CE95A2002D6FB6 /* Coordinator.swift */,
 				D181BB2E21CEEC16002D6FB6 /* NibLoadable.swift */,
 				D181BB3021CEED54002D6FB6 /* CoordinatorHolderView.swift */,
@@ -333,6 +338,15 @@
 				D181BB4421D027C0002D6FB6 /* JokeDetailViewModel.swift */,
 			);
 			path = "Joke Detail";
+			sourceTree = "<group>";
+		};
+		D181BB4621D0333D002D6FB6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D181BB4721D03354002D6FB6 /* UINavigationController+Extensions.swift */,
+				D181BB4921D03401002D6FB6 /* UIColor+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FBD5B7996413DD64CBFB850D /* Frameworks */ = {
@@ -587,11 +601,13 @@
 				D181BAEF21CDC1A1002D6FB6 /* JokeRemoteDataSource.swift in Sources */,
 				D181BB3521CEF009002D6FB6 /* CategoriesTableViewCell.swift in Sources */,
 				D181BB2D21CEEAAA002D6FB6 /* CategoriesViewModel.swift in Sources */,
+				D181BB4821D03354002D6FB6 /* UINavigationController+Extensions.swift in Sources */,
 				D181BAED21CDBFBE002D6FB6 /* JokeRemoteModel.swift in Sources */,
 				D181BAF421CDC552002D6FB6 /* JokeRepository.swift in Sources */,
 				D181BB2521CEE926002D6FB6 /* CategoriesConfigurator.swift in Sources */,
 				D181BB3D21D02793002D6FB6 /* JokeDetailConfigurator.swift in Sources */,
 				D181BB1E21CE995F002D6FB6 /* JokeCoordinator.swift in Sources */,
+				D181BB4A21D03401002D6FB6 /* UIColor+Extension.swift in Sources */,
 				D181BB2B21CEEA8B002D6FB6 /* CategoriesPresenter.swift in Sources */,
 				D181BB4321D027B6002D6FB6 /* JokeDetailPresenter.swift in Sources */,
 				D181BB1921CE9564002D6FB6 /* AppCoordinator.swift in Sources */,

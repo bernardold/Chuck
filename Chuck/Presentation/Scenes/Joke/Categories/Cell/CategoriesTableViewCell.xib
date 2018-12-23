@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categoria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46B-6L-wrv">
-                        <rect key="frame" x="16" y="16" width="254" height="44.5"/>
+                        <rect key="frame" x="24" y="16" width="246" height="44.5"/>
                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -29,7 +29,7 @@
                 <constraints>
                     <constraint firstItem="46B-6L-wrv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="3zK-1R-Wv1"/>
                     <constraint firstItem="46B-6L-wrv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="h7i-yM-uUJ"/>
-                    <constraint firstItem="46B-6L-wrv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="l2B-Xo-NDp"/>
+                    <constraint firstItem="46B-6L-wrv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="l2B-Xo-NDp"/>
                     <constraint firstAttribute="trailing" secondItem="46B-6L-wrv" secondAttribute="trailing" constant="16" id="oxJ-Ft-slv"/>
                 </constraints>
             </tableViewCellContentView>
