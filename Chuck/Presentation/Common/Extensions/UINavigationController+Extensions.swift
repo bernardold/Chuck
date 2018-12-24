@@ -10,6 +10,7 @@ import UIKit
 
 extension UINavigationController {
     func setToDefault() {
+        view.backgroundColor = .white
         navigationBar.barStyle = .default
         navigationBar.isTranslucent = false
         navigationBar.barTintColor = .primary

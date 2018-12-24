@@ -45,6 +45,7 @@ extension JokeCoordinator {
     private func navigateToJoke(_ category: String) {
         let viewController = self.container.resolve(JokeDetailViewController.self)!
         viewController.navigationItem.title = category
+        viewController.selectedCategory = category
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

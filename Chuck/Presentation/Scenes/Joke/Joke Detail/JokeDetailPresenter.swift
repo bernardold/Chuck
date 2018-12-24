@@ -16,4 +16,32 @@ struct JokeDetailPresenter {
     let getJokeUseCase: Domain.GetRandomJokeUseCase
 }
 
-extension JokeDetailPresenter {}
+extension JokeDetailPresenter {
+    func setup() {
+        view?.askForJoke
+            .map({ $0.lowercased() })
+            .map({ GetRandomJokeUseCase.Request(category: $0) })
+            .flatMap({ request in
+                self.getJokeUseCase.getSingle(request: request)
+                    .do(onSubscribe: { () in
+                        self.view?.startLoading()
+                    })
+                    .map({ $0.toViewModel() })
+                    .do(onSuccess: { jokeVM in
+                        self.view?.stopLoading()
+                        self.view?.displayJoke(viewModel: jokeVM)
+                    }, onError: { error in
+                        guard let domainError = error as? DomainError else {
+                            // TODO: handle error
+                            return
+                        }
+                        // TODO: handle domain error
+                    })
+                    .asCompletable()
+                    .catchError({ _ in Completable.empty() })
+            })
+            .subscribe()
+            .disposed(by: disposeBag)
+
+    }
+}

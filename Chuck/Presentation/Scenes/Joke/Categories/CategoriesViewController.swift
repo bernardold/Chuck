@@ -26,8 +26,8 @@ class CategoriesViewController: UIViewController {
 
     var dataSource = [String]()
 
-    var onSelectCategory: Observable<String> { return self.onSelectCategorySubject }
-    fileprivate var onSelectCategorySubject: PublishSubject<String> = PublishSubject<String>()
+    var onSelectCategory: Observable<String> { return onSelectCategorySubject }
+    private var onSelectCategorySubject = PublishSubject<String>()
 
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var loadingView: UIView!

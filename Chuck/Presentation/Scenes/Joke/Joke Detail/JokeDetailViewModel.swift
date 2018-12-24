@@ -7,3 +7,20 @@
 //
 
 import Foundation
+import Domain
+
+struct JokeDetailViewModel {
+    let jokeId: String
+    let imageUrl: String
+    let fact: String
+    let externalUrl: String
+}
+
+extension Domain.Joke {
+    func toViewModel() -> JokeDetailViewModel {
+        return JokeDetailViewModel(jokeId: jokeId,
+                                   imageUrl: iconUrl,
+                                   fact: value,
+                                   externalUrl: url)
+    }
+}
