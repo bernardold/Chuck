@@ -18,21 +18,36 @@ struct CategoriesPresenter {
 
 extension CategoriesPresenter {
     func setup() {
-        getCategoriesUseCase.getSingle()
-            .do(onSubscribe: { () in
-                self.view?.startLoading()
+        view?.askForCategories
+            .flatMap({ _ in
+                self.getCategoriesUseCase.getSingle()
+                    .do(onSubscribe: { () in
+                        self.view?.startLoading()
+                    })
+                    .map({ $0.toViewModel() })
+                    .do(onSuccess: { categoriesVM in
+                        self.view?.stopLoading()
+                        self.view?.displayCategories(viewModel: categoriesVM)
+                    }, onError: { error in
+                        self.view?.stopLoading()
+                        guard let domainError = error as? DomainError else {
+                            self.view?.displayError(withMessage: "Not even Chuck Norris knows what happened. Please try again.",
+                                                    showTryAgainButton: true)
+                            return
+                        }
+                        switch domainError {
+                        case .notConnectedToInternet:
+                            self.view?.displayError(withMessage: "Apparently Chuck Norris Roundhouse kicked your Internet.\nCheck your connection and try again.",
+                                               showTryAgainButton: true)
+                        default:
+                            self.view?.displayError(withMessage: "Not even Chuck Norris knows what happened. Please try again.",
+                                               showTryAgainButton: true)
+                        }
+                    })
+                    .asCompletable()
+                    .catchError({ _ in Completable.empty() })
             })
-            .map({ $0.toViewModel() })
-            .subscribe(onSuccess: { categoriesVM in
-                self.view?.stopLoading()
-                self.view?.displayCategories(viewModel: categoriesVM)
-            }, onError: { error in
-                guard let domainError = error as? DomainError else {
-                    // TODO: handle error
-                    return
-                }
-                // TODO: handle domain error
-            })
+            .subscribe()
             .disposed(by: disposeBag)
 
         view?.onSelectCategory

@@ -12,9 +12,11 @@ import RxCocoa
 
 protocol CategoriesView: CoordinatorHolderView {
     var onSelectCategory: Observable<String> { get }
+    var askForCategories: Observable<Void> { get }
 
     func displayCategories(viewModel: CategoriesViewModel)
     func displayJoke(fromCategory category: String)
+    func displayError(withMessage message: String, showTryAgainButton: Bool)
     func startLoading()
     func stopLoading()
 }
@@ -28,15 +30,21 @@ class CategoriesViewController: UIViewController {
 
     var onSelectCategory: Observable<String> { return onSelectCategorySubject }
     private var onSelectCategorySubject = PublishSubject<String>()
+    var askForCategories: Observable<Void> { return askForCategoriesSubject }
+    private var askForCategoriesSubject = PublishSubject<Void>()
 
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var loadingView: UIView!
+    @IBOutlet private var errorView: UIView!
+    @IBOutlet private var errorMessageLabel: UILabel!
+    @IBOutlet private var tryAgainButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupObservables()
         presenter.setup()
+        askForCategoriesSubject.onNext(())
     }
 }
 
@@ -59,6 +67,13 @@ extension CategoriesViewController {
             })
             .bind(to: onSelectCategorySubject)
             .disposed(by: disposeBag)
+
+        tryAgainButton.rx.tap.asObservable()
+            .do(onNext: { [weak self] () in
+                self?.errorView.isHidden = true
+            })
+            .bind(to: askForCategoriesSubject)
+            .disposed(by: disposeBag)
     }
 }
 
@@ -70,6 +85,12 @@ extension CategoriesViewController: CategoriesView {
 
     func displayJoke(fromCategory category: String) {
         coordinator?.navigate(to: .joke(category: category))
+    }
+
+    func displayError(withMessage errorMessage: String, showTryAgainButton: Bool) {
+        errorMessageLabel.text = errorMessage
+        tryAgainButton.isHidden = !showTryAgainButton
+        errorView.isHidden = false
     }
 
     func startLoading() {
