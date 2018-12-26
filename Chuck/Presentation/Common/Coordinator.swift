@@ -24,6 +24,12 @@ protocol Coordinator: class {
     func navigate(to scene: CoordinatorScenes)
 }
 
+extension Coordinator {
+    func pop() {
+        navigationController?.popViewController(animated: true)
+    }
+}
+
 enum CoordinatorScenes {
     case categories
     case joke(category: String)
