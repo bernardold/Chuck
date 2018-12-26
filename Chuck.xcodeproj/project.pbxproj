@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8DD3CDFD1106F7A7D843EE55 /* Pods_Chuck_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54127C25B8804F07C52109B8 /* Pods_Chuck_Domain.framework */; };
+		D110C28B21D302DE0051FAFF /* PrimitiveSequence+Moya.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110C28A21D302DE0051FAFF /* PrimitiveSequence+Moya.swift */; };
 		D14F2BCF21CDA7F20027CFED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F2BCE21CDA7F20027CFED /* AppDelegate.swift */; };
 		D14F2BD621CDA7F30027CFED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D14F2BD521CDA7F30027CFED /* Assets.xcassets */; };
 		D14F2BD921CDA7F30027CFED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D14F2BD721CDA7F30027CFED /* LaunchScreen.storyboard */; };
@@ -78,6 +79,7 @@
 		54127C25B8804F07C52109B8 /* Pods_Chuck_Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chuck_Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		587A637273433330C83CB6B6 /* Pods-Chuck-Domain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chuck-Domain.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chuck-Domain/Pods-Chuck-Domain.release.xcconfig"; sourceTree = "<group>"; };
 		AEC18922A15A86F524D2ABFA /* Pods-Chuck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chuck.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chuck/Pods-Chuck.release.xcconfig"; sourceTree = "<group>"; };
+		D110C28A21D302DE0051FAFF /* PrimitiveSequence+Moya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrimitiveSequence+Moya.swift"; sourceTree = "<group>"; };
 		D14F2BCB21CDA7F20027CFED /* Chuck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chuck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D14F2BCE21CDA7F20027CFED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D14F2BD521CDA7F30027CFED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -161,6 +163,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D110C28921D3019B0051FAFF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D110C28A21D302DE0051FAFF /* PrimitiveSequence+Moya.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		D14F2BC221CDA7F10027CFED = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +240,7 @@
 		D181BAE521CDAEBA002D6FB6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				D110C28921D3019B0051FAFF /* Utils */,
 				D181BAE921CDAFF8002D6FB6 /* Model */,
 				D181BAF221CDC531002D6FB6 /* Remote */,
 				D181BAF321CDC552002D6FB6 /* JokeRepository.swift */,
@@ -598,6 +609,7 @@
 				D181BB2821CEE9FC002D6FB6 /* CategoriesViewController.swift in Sources */,
 				D181BB2F21CEEC16002D6FB6 /* NibLoadable.swift in Sources */,
 				D181BB4521D027C0002D6FB6 /* JokeDetailViewModel.swift in Sources */,
+				D110C28B21D302DE0051FAFF /* PrimitiveSequence+Moya.swift in Sources */,
 				D14F2BCF21CDA7F20027CFED /* AppDelegate.swift in Sources */,
 				D181BB4021D027A8002D6FB6 /* JokeDetailViewController.swift in Sources */,
 				D181BB1721CE94F8002D6FB6 /* AppConfigurator.swift in Sources */,

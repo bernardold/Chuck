@@ -19,12 +19,10 @@ class JokeRemoteDataSource {
     }
 
     func getJokeCategories() -> Single<[String]> {
-        return provider.rx.request(.categories).map([String].self)
-        // TODO: Map domain errors
+        return provider.rx.request(.categories).mapError().map([String].self)
     }
 
     func getRandomJoke(_ category: String) -> Single<JokeRemoteModel> {
-        return provider.rx.request(.joke(category: category)).map(JokeRemoteModel.self)
-        // TODO: Map domain errors
+        return provider.rx.request(.joke(category: category)).mapError().map(JokeRemoteModel.self)
     }
 }

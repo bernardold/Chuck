@@ -9,5 +9,6 @@
 import Foundation
 
 public enum DomainError: Error {
-    // TODO: Handle errors
+    case underlying
+    case notConnectedToInternet
 }
