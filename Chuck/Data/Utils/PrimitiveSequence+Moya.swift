@@ -19,8 +19,14 @@ extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
             }
             switch moyaError {
             case .underlying(let nsError as NSError, _):
-                let domainError = nsError.code == NSURLErrorNotConnectedToInternet ? DomainError.notConnectedToInternet : DomainError.underlying
+                var domainError: DomainError
+                switch nsError.code {
+                case NSURLErrorNotConnectedToInternet, NSURLErrorTimedOut:
+                    domainError = .notConnectedToInternet
+                default: domainError = .underlying
+                }
                 return Single.error(domainError)
+
             default: return Single.error(DomainError.underlying)
             }
         })
