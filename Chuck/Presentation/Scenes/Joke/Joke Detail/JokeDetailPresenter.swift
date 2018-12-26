@@ -31,11 +31,17 @@ extension JokeDetailPresenter {
                         self.view?.stopLoading()
                         self.view?.displayJoke(viewModel: jokeVM)
                     }, onError: { error in
+                        self.view?.stopLoading()
                         guard let domainError = error as? DomainError else {
-                            // TODO: handle error
+                            self.view?.displayError(withMessage: "Not even Chuck Norris knows what happened.")
                             return
                         }
-                        // TODO: handle domain error
+                        switch domainError {
+                        case .notConnectedToInternet:
+                            self.view?.displayError(withMessage: "Apparently Chuck Norris Roundhouse kicked your Internet.")
+                        default:
+                            self.view?.displayError(withMessage: "Not even Chuck Norris knows what happened.")
+                        }
                     })
                     .asCompletable()
                     .catchError({ _ in Completable.empty() })

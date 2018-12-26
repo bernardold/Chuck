@@ -16,7 +16,7 @@ protocol CategoriesView: CoordinatorHolderView {
 
     func displayCategories(viewModel: CategoriesViewModel)
     func displayJoke(fromCategory category: String)
-    func displayError(withMessage message: String, showTryAgainButton: Bool)
+    func displayError(withMessage errorMessage: String, showTryAgainButton: Bool)
     func startLoading()
     func stopLoading()
 }

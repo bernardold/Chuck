@@ -14,6 +14,7 @@ protocol JokeDetailView: CoordinatorHolderView {
     var askForJoke: Observable<String> { get }
 
     func displayJoke(viewModel: JokeDetailViewModel)
+    func displayError(withMessage errorMessage: String)
     func startLoading()
     func stopLoading()
 }
@@ -62,10 +63,6 @@ extension JokeDetailViewController {
             .disposed(by: disposeBag)
 
         refreshButton.rx.tap.asObservable()
-            .do(onNext: { [weak self] () in
-                self?.externalLinkButton.isEnabled = false
-                self?.refreshButton.isEnabled = false
-            })
             .map({ [weak self] _ in
                 guard let self = self else { return "" }
                 return self.selectedCategory
@@ -84,6 +81,17 @@ extension JokeDetailViewController: JokeDetailView {
         stackView.isHidden = false
         externalLinkButton.isEnabled = true
         refreshButton.isEnabled = true
+    }
+
+    func displayError(withMessage errorMessage: String) {
+        let alertController = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            // Do not pop if refreshing
+            guard let self = self, self.stackView.isHidden else { return }
+            self.coordinator?.pop()
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 
     func startLoading() {
